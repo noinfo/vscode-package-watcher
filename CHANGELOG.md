@@ -4,6 +4,10 @@ All notable changes to the "package-watcher" extension will be documented in thi
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [0.1.5]
+
+- fix typo in status bar item
+
 ## [0.1.4]
 
 - update links and documentation

@@ -17,7 +17,7 @@ const update = ({
   icon: "loading" | "check-all" | "error";
   tooltip: string;
 }) => {
-  statusBarItem.text = `$(${icon})eddyson Package Watcher`;
+  statusBarItem.text = `$(${icon})noinfo Package Watcher`;
   statusBarItem.tooltip = tooltip;
 };
 
