@@ -88,7 +88,10 @@ class PackageWatcherExtension {
           "yarn.lock"
         )
           ? "yarn install"
-          : "npm install";
+          : filteredPackageLockFile.fsPath.endsWith(
+            "pnpm-lock.yaml"
+          ) 
+            ? "pnpm install" : "npm install";
 
         const command =
           mode === "request"
