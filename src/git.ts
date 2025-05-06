@@ -1,7 +1,7 @@
-import * as vscode from "vscode";
 import execa from "execa";
-import log from "./log";
 import os from "os";
+import * as vscode from "vscode";
+import log from "./log";
 
 /**
  * Get the git email of the current user
@@ -13,9 +13,9 @@ const userEmail = async (): Promise<string> => {
     console.log(result?.stdout);
 
     return result?.stdout ?? unknown;
-  } catch (e) {
+  } catch (e: unknown) {
     console.error(e);
-    log.info(`Git user.email Error: ${e.message}`);
+    log.info(`Git user.email Error: ${(e as { message: string }).message}`);
     return unknown;
   }
 };
@@ -41,9 +41,11 @@ const remote = async (): Promise<string> => {
     console.log(result?.stdout);
 
     return result?.stdout ?? unknown;
-  } catch (e) {
+  } catch (e: unknown) {
     console.error(e);
-    log.info(`Git remote.origin.url Error: ${e.message}`);
+    log.info(
+      `Git remote.origin.url Error: ${(e as { message: string }).message}`
+    );
     return unknown;
   }
 };

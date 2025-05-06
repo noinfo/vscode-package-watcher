@@ -4,6 +4,12 @@ All notable changes to the "package-watcher" extension will be documented in thi
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [0.1.3]
+
+- forked from [pinterest/vscode-package-watcher](https://github.com/pinterest/vscode-package-watcher)
+- added pnpm support
+- removed telemetry
+
 ## [0.1.2]
 
 - Skip package.json files which contain workspaces

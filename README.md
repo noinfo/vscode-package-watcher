@@ -1,9 +1,11 @@
 # VSCode Package Watcher
 
-[![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/pinterest.package-watcher)](https://marketplace.visualstudio.com/items?itemName=pinterest.package-watcher)
-[![Visual Studio Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/pinterest.package-watcher)](https://marketplace.visualstudio.com/items?itemName=pinterest.package-watcher)
+[![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/noinfode.noinfo-package-watcher)](https://marketplace.visualstudio.com/items?itemName=noinfode.noinfo-package-watcher)
+[![Visual Studio Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/noinfode.noinfo-package-watcher)](https://marketplace.visualstudio.com/items?itemName=noinfode.noinfo-package-watcher)
 
-Watch package lock files and suggest to re-run npm or yarn.
+Watch package lock files and suggest to re-run pnpm, npm or yarn.
+
+Forked from [pinterest.package-watcher](https://marketplace.visualstudio.com/items?itemName=pinterest.package-watcher) to add `pnpm` support. Also removed telemetry.
 
 <img src="https://raw.githubusercontent.com/christianvuerings/vscode-package-watcher/master/images/package-watcher-animated.gif" width="595" alt="Package Watcher animated gif to show functionality of the VSCode extension" />
 
@@ -18,8 +20,8 @@ Watch package lock files and suggest to re-run npm or yarn.
 
 Install options:
 
-- [Download from the marketplace](https://marketplace.visualstudio.com/items?itemName=pinterest.package-watcher)
-- Install from the command line: `code --install-extension pinterest.package-watcher`
+- [Download from the marketplace](https://marketplace.visualstudio.com/items?itemName=noinfode.noinfo-package-watcher)
+- Install from the command line: `code --install-extension noinfode.noinfo-package-watcher`
 - Search for `Package Watcher` in the VS Code extensions panel
 
 ## Requirements
@@ -29,16 +31,15 @@ Install options:
 
 ## Extension Settings
 
-| Setting                          | Type (default)                           | Description                                                                                                                                                                                               |
-| :------------------------------- | :--------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `packageWatcher.enableTelemetry` | `boolean` (`true`)                       | Enable/disable telemetry                                                                                                                                                                                  |
-| `packageWatcher.mode`            | `enum: 'auto', 'request'` (**`'auto'`**) | `auto` runs the extension in the background and automatically runs yarn/npm install.<br />`request`notifies you when a change in a package lock file is detected and asks you to install new depedencies. |
+| Setting                     | Type (default)                           | Description                                                                                                                                                                                               |
+| :-------------------------- | :--------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `noinfoPackageWatcher.mode` | `enum: 'auto', 'request'` (**`'auto'`**) | `auto` runs the extension in the background and automatically runs yarn/npm install.<br />`request`notifies you when a change in a package lock file is detected and asks you to install new depedencies. |
 
 ## Extension Commands
 
-| Setting                            | Description             |
-| :--------------------------------- | :---------------------- |
-| `packageWatcher.showOutputChannel` | Show the output channel |
+| Setting                                  | Description             |
+| :--------------------------------------- | :---------------------- |
+| `noinfoPackageWatcher.showOutputChannel` | Show the output channel |
 
 ## Release Notes
 
@@ -79,4 +80,4 @@ Validate the following:
 2. `pnpm-lock.yaml`, `yarn.lock` or `package-lock.json` file exists in the VSCode workspace.
 3. `node_modules` directory lives next to the `package.json` directory.
 
-Then restart your editor and copy/paste the output in the `Package Watcher` output log. You can see this log by clicking on `Package Watcher` in the status bar.
+Then restart your editor and copy/paste the output in the `noinfo Package Watcher` output log. You can see this log by clicking on `noinfo Package Watcher` in the status bar.

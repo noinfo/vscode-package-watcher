@@ -1,9 +1,8 @@
-import * as vscode from "vscode";
 import execa from "execa";
-import log from "./log";
 import path from "path";
+import * as vscode from "vscode";
+import log from "./log";
 import statusBar from "./statusBar";
-import track from "./track";
 
 type ExcludesFalse = <T>(x: T | false) => x is T;
 
@@ -137,13 +136,6 @@ class PackageWatcherExtension {
 
           this.resetStatusBar();
 
-          track.event({
-            category: "Event",
-            action: "Count",
-            label: "Pass",
-            value: "1",
-          });
-
           if (mode === "request") {
             vscode.window.showInformationMessage(
               `${command} in ${relativeDirectory} succeeded`
@@ -169,13 +161,6 @@ class PackageWatcherExtension {
           statusBar.update({
             icon: "error",
             tooltip: `Error: ${lines}`,
-          });
-
-          track.event({
-            category: "Event",
-            action: "Count",
-            label: "Fail",
-            value: "1",
           });
 
           if (mode === "request") {
@@ -263,12 +248,6 @@ async function initializePackageWatcher(
     log.info(`File: ${lockfileWithNodeModules.fsPath}`);
   });
 
-  track.event({
-    category: "Event",
-    action: "Activate",
-    label: "Extension",
-  });
-
   return new PackageWatcherExtension({
     context,
     lockfilesWithNodeModules,
@@ -286,7 +265,7 @@ export async function activate(context: vscode.ExtensionContext) {
   );
 
   vscode.workspace.onDidChangeConfiguration(async (event) => {
-    if (event.affectsConfiguration("packageWatcher")) {
+    if (event.affectsConfiguration("noinfoPackageWatcher")) {
       extension = await initializePackageWatcher(context);
       log.info("[Config reloaded]");
     }
@@ -307,9 +286,12 @@ export async function activate(context: vscode.ExtensionContext) {
   });
 
   context.subscriptions.push(
-    vscode.commands.registerCommand("packageWatcher.showOutputChannel", () => {
-      log.show();
-    }),
+    vscode.commands.registerCommand(
+      "noinfoPackageWatcher.showOutputChannel",
+      () => {
+        log.show();
+      }
+    ),
     statusBar,
     ...watchers
   );

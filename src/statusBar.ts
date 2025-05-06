@@ -7,7 +7,7 @@ const activate = () => {
     vscode.StatusBarAlignment.Right
   );
   statusBarItem.show();
-  statusBarItem.command = "packageWatcher.showOutputChannel";
+  statusBarItem.command = "noinfoPackageWatcher.showOutputChannel";
 };
 
 const update = ({
@@ -17,7 +17,7 @@ const update = ({
   icon: "loading" | "check-all" | "error";
   tooltip: string;
 }) => {
-  statusBarItem.text = `$(${icon}) Package Watcher`;
+  statusBarItem.text = `$(${icon})eddyson Package Watcher`;
   statusBarItem.tooltip = tooltip;
 };
 
