@@ -7,7 +7,7 @@ import track from "./track";
 
 type ExcludesFalse = <T>(x: T | false) => x is T;
 
-const lockFiles = ["yarn.lock", "package-lock.json"];
+const lockFiles = ["pnpm-lock.yaml", "yarn.lock", "package-lock.json"];
 const lockFileGlobPattern = `**/{${lockFiles.join(",")}}`;
 
 async function runCommand(
