@@ -9,7 +9,7 @@ Watch package lock files and suggest to re-run npm or yarn.
 
 ## Features
 
-- `npm` and `yarn` support
+- `pnpm`, `npm` and `yarn` support
 - Monorepo support
 - 2 Modes: `auto` & `request` [mode](#extension-settings)
 - Restart ESLint server when package install is successful
