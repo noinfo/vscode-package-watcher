@@ -24,7 +24,7 @@ Install options:
 
 ## Requirements
 
-- Use either `npm` or `yarn` in your project
+- Use either `pnpm`, `npm` or `yarn` in your project
 - A `node_modules` directory
 
 ## Extension Settings
